@@ -6,8 +6,8 @@
 
 
 
-    const MAX_PARTICLE_VELOCITY = 1;
-    const particleRadius = 3;
+    const MAX_PARTICLE_VELOCITY = 1.5;
+    const particleRadius = 4;
     const particleDistanceThreshold = 140;
     const maxNeighbors = 3;
     const PARTICLE_DISTANCE_THRESHOLD_SQ =  Math.pow(particleDistanceThreshold, 2)
@@ -146,7 +146,7 @@
             for(otherParticleIndex in closestParticles)
             {
                 otherParticle = particles[closestParticles[otherParticleIndex]]
-                let strokeOpacity = 500/ closestParticlesDistances[otherParticleIndex];
+                let strokeOpacity = 1000/ closestParticlesDistances[otherParticleIndex];
                 context.strokeStyle = LINK_COLOR + strokeOpacity.toString() + ")";
                 context.moveTo(particle.posx, particle.posy);
                 context.lineTo(otherParticle.posx, otherParticle.posy);
