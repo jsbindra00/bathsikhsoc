@@ -13,7 +13,7 @@
     const PARTICLE_DISTANCE_THRESHOLD_SQ =  Math.pow(particleDistanceThreshold, 2)
     const SPAWN_N_PARTICLES_ON_CLICK = 5;
     const N_PARTICLES = 150;
-    const PARTICLE_COLOR = "rgba(230,115,0,255)";
+    const PARTICLE_COLOR = "rgba(230,115,0,";
     const BACKGROUND_COLOR= "rgba(255,255,255,255)";
     const LINK_COLOR = "rgba(3,30,106,";
 
@@ -152,12 +152,26 @@
                 context.lineTo(otherParticle.posx, otherParticle.posy);
                 context.stroke();
             }
-
+            
+            totalDistance = 0
+            for(otherParticleDistance in closestParticlesDistances)
+            {
+                distance = closestParticlesDistances[otherParticleDistance];
+                totalDistance+= distance;
+            }
+            totalDistance = totalDistance / maxNeighbors;
             // render the particle.
-            context.fillStyle = PARTICLE_COLOR;
+            
+
+            alpha = ((-255*particle.posx) /maxX)  + 255 
+            context.strokeStyle = "rgba(230,115,0,255)";
+            context.fillStyle = "rgb(255,255,255)";
             context.beginPath();
             context.arc(particle.posx, particle.posy, particleRadius, 0, 2 * Math.PI);
             context.fill();
+
+            context.stroke();
+
 
 
         }
