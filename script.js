@@ -153,17 +153,7 @@
                 context.stroke();
             }
             
-            totalDistance = 0
-            for(otherParticleDistance in closestParticlesDistances)
-            {
-                distance = closestParticlesDistances[otherParticleDistance];
-                totalDistance+= distance;
-            }
-            totalDistance = totalDistance / maxNeighbors;
-            // render the particle.
-            
 
-            alpha = ((-255*particle.posx) /maxX)  + 255 
             context.strokeStyle = "rgba(230,115,0,255)";
             context.fillStyle = "rgb(255,255,255)";
             context.beginPath();
@@ -214,4 +204,3 @@
     canvas.addEventListener('mousedown', function(e) {
         spawnParticles(canvas, e)
     })
-
