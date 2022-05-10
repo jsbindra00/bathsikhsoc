@@ -6,13 +6,13 @@
 
 
 
-    const MAX_PARTICLE_VELOCITY = 1.5;
+    const MAX_PARTICLE_VELOCITY = 0.1;
     const particleRadius = 4;
     const particleDistanceThreshold = 140;
     const maxNeighbors = 3;
     const PARTICLE_DISTANCE_THRESHOLD_SQ =  Math.pow(particleDistanceThreshold, 2)
     const SPAWN_N_PARTICLES_ON_CLICK = 5;
-    const N_PARTICLES = 150;
+    const N_PARTICLES = 100;
     const PARTICLE_COLOR = "rgba(230,115,0,";
     const BACKGROUND_COLOR= "rgba(255,255,255,255)";
     const LINK_COLOR = "rgba(3,30,106,";
@@ -107,6 +107,7 @@
         current_loop_performance = performance.now();
         previous_loop_performance = tmp;
         change_in_performance = current_loop_performance - previous_loop_performance;
+        change_in_performance = 1
 
 
         // document.getElementById("frame_rate").innerHTML = change_in_performance
@@ -120,8 +121,8 @@
         {
             particle = particles[particleIndex];
             // particle.AddPosition(particle.velx, particle.vely);
-            particle.posx += ((1 / 1000)*(particle.velx * change_in_performance));
-            particle.posy += ((1 / 1000)*(particle.vely * change_in_performance));
+            particle.posx += (particle.velx * change_in_performance);
+            particle.posy += (particle.vely * change_in_performance);
 
 
 
@@ -193,8 +194,6 @@
         
 
     function spawnParticles(canvas, event) {
-
-
 
         // spawn n particles given an event.
         const rect = canvas.getBoundingClientRect()
