@@ -112,7 +112,6 @@
 
         // document.getElementById("frame_rate").innerHTML = change_in_performance
         
-        console.log(change_in_performance);
         // do your drawing stuff here
         requestAnimationFrame(drawStuff)
         context.fillStyle = BACKGROUND_COLOR;
