@@ -97,9 +97,19 @@
     particles = GenerateParticles(N_PARTICLES);
 
 
-  
+    
+    previous_loop_performance = 0;
+    current_loop_performance = 0;
+    change_in_performance = 0
     function drawStuff() 
     {
+        tmp = current_loop_performance;
+        current_loop_performance = performance.now();
+        previous_loop_performance = tmp;
+        change_in_performance = current_loop_performance - previous_loop_performance;
+        
+        
+        console.log(change_in_performance);
         // do your drawing stuff here
         requestAnimationFrame(drawStuff)
         context.fillStyle = BACKGROUND_COLOR;
@@ -108,8 +118,8 @@
         {
             particle = particles[particleIndex];
             // particle.AddPosition(particle.velx, particle.vely);
-            particle.posx += particle.velx;
-            particle.posy += particle.vely;
+            particle.posx += ((10)*(particle.velx / change_in_performance));
+            particle.posy += ((10)*(particle.vely / change_in_performance));
 
 
 
