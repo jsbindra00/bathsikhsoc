@@ -107,7 +107,9 @@
         current_loop_performance = performance.now();
         previous_loop_performance = tmp;
         change_in_performance = current_loop_performance - previous_loop_performance;
-        
+
+
+        document.getElementById("frame_rate").innerHTML = change_in_performance
         
         console.log(change_in_performance);
         // do your drawing stuff here
@@ -118,8 +120,8 @@
         {
             particle = particles[particleIndex];
             // particle.AddPosition(particle.velx, particle.vely);
-            particle.posx += ((10)*(particle.velx / change_in_performance));
-            particle.posy += ((10)*(particle.vely / change_in_performance));
+            particle.posx += ((1)*(particle.velx / change_in_performance));
+            particle.posy += ((1)*(particle.vely / change_in_performance));
 
 
 
