@@ -109,7 +109,7 @@
         change_in_performance = current_loop_performance - previous_loop_performance;
 
 
-        document.getElementById("frame_rate").innerHTML = change_in_performance
+        // document.getElementById("frame_rate").innerHTML = change_in_performance
         
         console.log(change_in_performance);
         // do your drawing stuff here
